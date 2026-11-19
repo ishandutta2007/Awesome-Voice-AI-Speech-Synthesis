@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a071b"/>
+      <stop offset="45%" stop-color="#120e2e"/>
+      <stop offset="100%" stop-color="#180b33"/>
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#ec4899" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Radial Glows -->
+    <radialGradient id="glowPurple" cx="15%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0a071b" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowPink" cx="85%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0a071b" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Filter for neon text glow -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      .sound-bar {
+        transform-origin: bottom;
+        animation: soundPulse 1.8s ease-in-out infinite alternate;
+      }
+      @keyframes soundPulse {
+        0% { transform: scaleY(0.25); }
+        50% { transform: scaleY(1); }
+        100% { transform: scaleY(0.4); }
+      }
+      .wave-float {
+        animation: waveFlow 12s ease-in-out infinite alternate;
+      }
+      @keyframes waveFlow {
+        0% { transform: translateY(0px) scaleY(1); }
+        100% { transform: translateY(-16px) scaleY(1.08); }
+      }
+      .badge-glow {
+        animation: badgePulse 3s ease-in-out infinite;
+      }
+      @keyframes badgePulse {
+        0%, 100% { opacity: 0.9; }
+        50% { opacity: 1; filter: drop-shadow(0 0 10px rgba(168,85,247,0.6)); }
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)"/>
+  <rect width="1200" height="360" rx="16" fill="url(#glowPurple)"/>
+  <rect width="1200" height="360" rx="16" fill="url(#glowPink)"/>
+
+  <!-- Subtle Tech Grid Lines -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <line x1="0" y1="60" x2="1200" y2="60"/>
+    <line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="200" y1="0" x2="200" y2="360"/>
+    <line x1="400" y1="0" x2="400" y2="360"/>
+    <line x1="600" y1="0" x2="600" y2="360"/>
+    <line x1="800" y1="0" x2="800" y2="360"/>
+    <line x1="1000" y1="0" x2="1000" y2="360"/>
+  </g>
+
+  <!-- Dynamic / Animated Audio Waveforms (Strictly Background Behind Text) -->
+  <g class="wave-float" opacity="0.35">
+    <path d="M 0,270 Q 150,210 300,270 T 600,270 T 900,270 T 1200,270 L 1200,360 L 0,360 Z" fill="url(#waveGrad1)"/>
+  </g>
+  <g class="wave-float" style="animation-delay: -6s; opacity: 0.25;">
+    <path d="M 0,290 Q 180,240 360,290 T 720,290 T 1080,290 T 1200,290 L 1200,360 L 0,360 Z" fill="url(#cyanGrad)"/>
+  </g>
+
+  <!-- Animated Sound Equalizer Bars (Positioned safely across lower third) -->
+  <g transform="translate(60, 310)" fill="url(#accentGrad)" opacity="0.6">
+    <rect class="sound-bar" x="0" y="-80" width="5" height="80" rx="2.5" style="animation-delay: 0.1s;"/>
+    <rect class="sound-bar" x="12" y="-95" width="5" height="95" rx="2.5" style="animation-delay: 0.4s;"/>
+    <rect class="sound-bar" x="24" y="-60" width="5" height="60" rx="2.5" style="animation-delay: 0.2s;"/>
+    <rect class="sound-bar" x="36" y="-110" width="5" height="110" rx="2.5" style="animation-delay: 0.7s;"/>
+    <rect class="sound-bar" x="48" y="-75" width="5" height="75" rx="2.5" style="animation-delay: 0.3s;"/>
+    <rect class="sound-bar" x="60" y="-125" width="5" height="125" rx="2.5" style="animation-delay: 0.9s;"/>
+    <rect class="sound-bar" x="72" y="-90" width="5" height="90" rx="2.5" style="animation-delay: 0.5s;"/>
+    <rect class="sound-bar" x="84" y="-50" width="5" height="50" rx="2.5" style="animation-delay: 0.2s;"/>
+    <rect class="sound-bar" x="96" y="-105" width="5" height="105" rx="2.5" style="animation-delay: 0.8s;"/>
+    <rect class="sound-bar" x="108" y="-70" width="5" height="70" rx="2.5" style="animation-delay: 0.4s;"/>
+  </g>
+
+  <g transform="translate(1020, 310)" fill="url(#accentGrad)" opacity="0.6">
+    <rect class="sound-bar" x="0" y="-70" width="5" height="70" rx="2.5" style="animation-delay: 0.5s;"/>
+    <rect class="sound-bar" x="12" y="-115" width="5" height="115" rx="2.5" style="animation-delay: 0.2s;"/>
+    <rect class="sound-bar" x="24" y="-80" width="5" height="80" rx="2.5" style="animation-delay: 0.8s;"/>
+    <rect class="sound-bar" x="36" y="-125" width="5" height="125" rx="2.5" style="animation-delay: 0.3s;"/>
+    <rect class="sound-bar" x="48" y="-60" width="5" height="60" rx="2.5" style="animation-delay: 0.7s;"/>
+    <rect class="sound-bar" x="60" y="-100" width="5" height="100" rx="2.5" style="animation-delay: 0.1s;"/>
+    <rect class="sound-bar" x="72" y="-120" width="5" height="120" rx="2.5" style="animation-delay: 0.6s;"/>
+    <rect class="sound-bar" x="84" y="-85" width="5" height="85" rx="2.5" style="animation-delay: 0.4s;"/>
+    <rect class="sound-bar" x="96" y="-65" width="5" height="65" rx="2.5" style="animation-delay: 0.9s;"/>
+    <rect class="sound-bar" x="108" y="-95" width="5" height="95" rx="2.5" style="animation-delay: 0.2s;"/>
+  </g>
+
+  <!-- Foreground Content Block (High Contrast, Never Hidden) -->
+  <g id="foreground-text">
+    <!-- Top Pill Badges -->
+    <g transform="translate(60, 42)">
+      <rect x="0" y="0" width="186" height="28" rx="14" fill="#6366f1" fill-opacity="0.18" stroke="#818cf8" stroke-width="1.2"/>
+      <circle cx="16" cy="14" r="4.5" fill="#38bdf8"/>
+      <text x="28" y="19" fill="#e0e7ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="0.5">CURATED DIRECTORY</text>
+    </g>
+
+    <g transform="translate(258, 42)">
+      <rect x="0" y="0" width="176" height="28" rx="14" fill="#a855f7" fill-opacity="0.18" stroke="#c084fc" stroke-width="1.2"/>
+      <circle cx="16" cy="14" r="4.5" fill="#f472b6"/>
+      <text x="28" y="19" fill="#f3e8ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="0.5">TTS &amp; VOICE CLONING</text>
+    </g>
+
+    <g transform="translate(446, 42)">
+      <rect x="0" y="0" width="144" height="28" rx="14" fill="#ec4899" fill-opacity="0.18" stroke="#f472b6" stroke-width="1.2"/>
+      <circle cx="16" cy="14" r="4.5" fill="#34d399"/>
+      <text x="28" y="19" fill="#fce7f3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="0.5">OPEN-SOURCE &amp; SAAS</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="60" y="132" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.8">
+      Awesome Voice AI &amp; Speech Synthesis
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="60" y="174" fill="#c7d2fe" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="500">
+      Neural Text-to-Speech (TTS) • Zero-Shot Voice Cloning • Conversational Voice Agents • Audio Studios
+    </text>
+
+    <text x="60" y="206" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400">
+      Comprehensive curated collection of market-leading commercial platforms and top-starred open-weight models.
+    </text>
+
+    <!-- Visual Feature Badges Row -->
+    <g transform="translate(60, 240)">
+      <!-- Badge 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="180" height="34" rx="8" fill="#1e1b4b" stroke="#4338ca" stroke-width="1.2"/>
+        <text x="14" y="22" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600">🎙️ Zero-Shot Cloning</text>
+      </g>
+      <!-- Badge 2 -->
+      <g transform="translate(192, 0)">
+        <rect width="180" height="34" rx="8" fill="#1e1b4b" stroke="#4338ca" stroke-width="1.2"/>
+        <text x="14" y="22" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600">⚡ Sub-100ms Streaming</text>
+      </g>
+      <!-- Badge 3 -->
+      <g transform="translate(384, 0)">
+        <rect width="180" height="34" rx="8" fill="#1e1b4b" stroke="#4338ca" stroke-width="1.2"/>
+        <text x="14" y="22" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600">🌐 100+ Languages</text>
+      </g>
+      <!-- Badge 4 -->
+      <g transform="translate(576, 0)">
+        <rect width="180" height="34" rx="8" fill="#1e1b4b" stroke="#4338ca" stroke-width="1.2"/>
+        <text x="14" y="22" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600">💻 Local Edge / ONNX</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Border Outline -->
+  <rect x="0.5" y="0.5" width="1199" height="359" rx="16" fill="none" stroke="#6366f1" stroke-opacity="0.3" stroke-width="1"/>
+</svg>
